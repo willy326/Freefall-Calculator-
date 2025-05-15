@@ -1,3 +1,3 @@
 # Freefall-Calculator-
 
-abjjs
+This will calculate free fall speed in different gravities.
