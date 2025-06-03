@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s;
+}
+
+/* Background images for each planet */
+.Mercury {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg');
+}
+.Venus {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg');
+}
+.Earth {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');
+}
+.Mars {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg');
+}
+.Jupiter {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg');
+}
+.Saturn {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg');
+}
+.Uranus {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg');
+}
+.Neptune {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg');
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #888 70%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: background 0.5s;
+}
+
+.fall {
+  animation: fallAnim var(--fall-time) linear forwards;
+}
+
+@keyframes fallAnim {
+  0% { top: 10%; }
+  100% { top: 80%; }
+}
+
+select, button {
+  margin: 16px;
+  padding: 8px 16px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  border: none;
+}
+
+.info {
+  margin-top: 16px;
+  font-size: 1.2em;
+}
+
+.timer {
+  margin-top: 8px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffe066;
+  text-shadow: 1px 1px 4px #222;
+}
+
+/* Toggle Switch Styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 28px;
+  vertical-align: middle;
+  margin-left: 20px;
+  margin-right: 8px;
+}
+.switch input {display:none;}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 28px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; width: 20px;
+  left: 4px; bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+#airLabel {
+  font-size: 1.1em;
+  vertical-align: middle;
+  color: #ffe066;
+}
+
+/* Impulse info styling */
+.impulse {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.15em;
+  color: #fa8;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #222;
+}

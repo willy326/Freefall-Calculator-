@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Planet Gravity Drop Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="Earth">
+  <h1>Planet Gravity Drop Simulation</h1>
+  <div>
+    <label for="planet">Select a planet:</label>
+    <select id="planet">
+      <option value="Mercury">Mercury</option>
+      <option value="Venus">Venus</option>
+      <option value="Earth" selected>Earth</option>
+      <option value="Mars">Mars</option>
+      <option value="Jupiter">Jupiter</option>
+      <option value="Saturn">Saturn</option>
+      <option value="Uranus">Uranus</option>
+      <option value="Neptune">Neptune</option>
+    </select>
+    <!-- Air Resistance Toggle -->
+    <label class="switch">
+      <input type="checkbox" id="airToggle" checked>
+      <span class="slider"></span>
+    </label>
+    <span id="airLabel">Air Resistance: ON</span>
+    <button id="dropBtn">Drop the Ball</button>
+  </div>
+  <div class="info" id="info"></div>
+  <div class="timer" id="timer">Time: 0.00 s</div>
+  <div class="container">
+    <div class="ball" id="ball"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
