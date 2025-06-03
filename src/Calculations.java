@@ -1,7 +1,9 @@
+//William's code
 import java.util.Scanner;
 
 public class Calculations{
 
+    //gravitational acceleration of each planet
     public double Gravity(String planet){
         
         if(planet.equalsIgnoreCase("mercury")){
@@ -34,28 +36,35 @@ public class Calculations{
         
     }
 
+    // freefall time wihtout air resistance
     public double fallTime(double h, double g){
 
         return Math.sqrt((2*h)/g);
 
     }
 
+    //freefall time with air resistance 
     public double fallEquation(double t, double h, double m, double k, double g) {
         return (m * g / k) * (t - (m / k) * (1 - Math.exp(-k * t / m))) - h;
     }
 
+    //Bisection method to approximate the solution 
     public double fallTimeWithAirResistance(double h, double m, double k, double g) {
         double a = 0;
-        double b = 10; // increase b to ensure root is bracketed
+        double b = 1;  
         double tol = 1e-10;
         double mid = 0;
 
         double fA = fallEquation(a, h, m, k, g);
         double fB = fallEquation(b, h, m, k, g);
 
-        // Important check!
+        while (fA * fB > 0 && b < 1e6) { 
+            b *= 2;
+            fB = fallEquation(b, h, m, k, g);
+        }
+
         if (fA * fB > 0) {
-            System.out.println("Bisection failed: f(a) and f(b) have the same sign.");
+            System.out.println("Bisection failed: no root found even after expanding.");
             return -1;
         }
 
@@ -63,7 +72,7 @@ public class Calculations{
             mid = (a + b) / 2.0;
             double fMid = fallEquation(mid, h, m, k, g);
 
-            if (fMid == 0.0) return mid;
+            if (Math.abs(fMid) < tol) return mid;
             else if (fMid * fA < 0) {
                 b = mid;
                 fB = fMid;
@@ -75,6 +84,7 @@ public class Calculations{
 
         return (a + b) / 2.0;
     }
+
     //This code was written by chatGPT. This code uses bisection method to find close apprximiation for time
 
 
