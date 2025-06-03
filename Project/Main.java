@@ -32,5 +32,12 @@ public class Main {
         System.out.println("Fall time with air resistance: " + timeAir);
         System.out.println("----------------------------------------------------------");
         System.out.println();
+
+        //This part is written by Sewon
+        double impulse = physics.computeImpulse(mass, acceleration, height);
+        System.out.println("Impulse upon impact (no air resistance): " + impulse + " N·s");
+
+        System.out.println("----------------------------------------------------------");
+        System.out.println();
     }
 }

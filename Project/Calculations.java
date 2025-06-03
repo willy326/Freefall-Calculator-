@@ -85,7 +85,10 @@ public class Calculations{
         return (a + b) / 2.0;
     }
 
-    //This code was written by chatGPT. This code uses bisection method to find close apprximiation for time
-
+    //This code is written by Sewon
+    public double computeImpulse(double mass, double gravity, double height) {
+        double velocity = Math.sqrt(2 * gravity * height);
+        return mass * velocity;
+    }
 
 }
